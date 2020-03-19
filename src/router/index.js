@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Connexion from '../views/Connexion'
 import Inscription from "../views/Inscription";
-
+import PostConnexion from "../views/PostConnexion";
 
 Vue.use(VueRouter)
 
@@ -22,6 +22,11 @@ const routes = [
     path: '/Inscription',
     name: 'Inscription',
     component: Inscription
+  },
+  {
+    path: '/PostConnexion',
+    name: 'PostConnexion',
+    component: PostConnexion
   },
 
 
