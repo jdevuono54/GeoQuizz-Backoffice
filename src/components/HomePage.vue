@@ -4,14 +4,14 @@
           <div class="row">
               <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 container-game text-center">
                   <div class="title">
-                      <img alt="logo" src="../assets/logo.png" width="64">
+                      <img alt="logo" src="../assets/logo_without_text.svg" width="64">
                       <h1>GeoQuizz</h1>
                   </div>
                   <div >
-                      <button class="start-game">
+                      <button class="btn">
                           <router-link class="button_is_text"  to='/Connexion' >Connexion</router-link>
                       </button>
-                      <button class="start-game">
+                      <button class="btn">
                           <router-link class="button_is_text"  to='/Inscription' >Inscription</router-link>
                       </button>
                   </div>
@@ -43,6 +43,7 @@ export default {
             h1 {
                 display: inline;
                 font-size: 4em;
+
             }
 
             img {
@@ -50,9 +51,12 @@ export default {
                 vertical-align: top;
             }
 
-            .start-game {
-                margin-top: 1em;
-                margin-left: 2em;
+            .btn {
+                margin-top: 3em;
+                margin-left: 1em;
+                background-color: lightgrey;
+                color: dodgerblue;
+                width: 10em;
             }
         }
     }

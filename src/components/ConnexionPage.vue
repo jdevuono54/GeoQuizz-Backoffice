@@ -1,16 +1,25 @@
 <template>
-    <div class="Connexion form-group" >
-        <h2>GéoQuizz</h2>
-        <form @submit.prevent="connexionMembre">
-            <input type="text" placeholder="Entrer le nom d'utilisateur" v-model="email" required class="form-control"  >
-            <br>
-            <input type="password" placeholder="Entrer le mot de passe" v-model="password" required class="form-control">
-            <br>
-            <input type="submit"  value='LOGIN'  class="btn btn-primary">
-            <button >
-                <router-link class="button_is_text"  to='/Inscription' >Créer un compte</router-link>
-            </button>
-        </form>
+    <div class="container-fluid home">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 container-game text-center">
+                <div class="title">
+                    <img alt="logo" src="../assets/logo_without_text.svg" width="64">
+                    <h2>GeoQuizz</h2>
+                </div>
+                <div >
+                    <form @submit.prevent="connexionMembre">
+                        <input type="text" placeholder="Entrer le nom d'utilisateur" v-model="email" required class="form-control"  >
+                        <br>
+                        <input type="password" placeholder="Entrer le mot de passe" v-model="password" required class="form-control">
+                        <br>
+                        <input type="submit"  value='LOGIN'  class="btn btn-primary">
+                        <button class="btn" >
+                            <router-link class="button_is_text"  to='/Inscription' >Créer un compte</router-link>
+                        </button>
+                </form>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -48,7 +57,34 @@
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style lang="scss" scoped>
+    .home {
+        min-height: 100vh;
 
+
+        .container-game {
+            margin-top: 50vh;
+            transform: translateY(-50%);
+
+            h1 {
+                display: inline;
+                font-size: 4em;
+            }
+
+            img {
+                margin-right: 1%;
+                vertical-align: top;
+            }
+            .btn {
+                margin-top: 1em;
+                margin-left: 2em;
+                background-color: lightgrey;
+                color: dodgerblue;
+                width: 10em;
+
+            }
+
+        }
+    }
 </style>
+
