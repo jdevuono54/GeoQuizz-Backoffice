@@ -10,15 +10,39 @@
                 <div >
                     <form @submit.prevent="setMembre">
                         <div>
-                            <input type="text" placeholder="Entrer le nom d'utilisateur" v-model="fullname" required class="form-control"/>
+                            <input type="text" placeholder="Prénom" v-model="firstname" required class="form-control"/>
                         </div>
                         <br>
                         <div>
-                            <input type="text" placeholder="email" v-model="email" required class="form-control"/>
+                            <input type="text" placeholder="Nom" v-model="lastname" required class="form-control"/>
                         </div>
                         <br>
                         <div>
-                            <input type="password" placeholder="Entrer le mot de passe" v-model="password" required class="form-control"/>
+                            <input type="text" placeholder="Email" v-model="email" required class="form-control"/>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="password" placeholder="Mot de passe" v-model="password" required class="form-control"/>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="text" placeholder="Numéro de téléphone" v-model="phone" required class="form-control"/>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="text" placeholder="Rue" v-model="street" required class="form-control"/>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="number" placeholder="Numéro de rue" v-model="street_number" required class="form-control"/>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="text" placeholder="Ville" v-model="city" required class="form-control"/>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="text" placeholder="Code Postal" v-model="zipcode" required class="form-control"/>
                         </div>
                         <br>
                         <div>
@@ -42,29 +66,41 @@
 
         data:function () {
             return {
-                fullname:'',
+                firstname:'',
+                lastname:'',
                 email:'',
                 password:'',
+                phone:'',
+                street_number:'',
+                street:'',
+                city:'',
+                zipcode:''
 
             }
 
         },
 
-        /*methods:{
+        methods:{
             setMembre()
             {
                 let parametre = {
-                    fullname:this.fullname,
+                    firstname:this.firstname,
+                    lastname: this.lastname,
+                    email:this.email,
                     password:this.password,
-                    email:this.email
+                    phone:this.phone,
+                    street_number: this.street_number,
+                    street: this.street,
+                    city: this.city,
+                    zipcode: this.zipcode
 
                 };
-                axios.post("members",parametre).then((response) =>{
+                axios.post("user/signin",parametre).then((response) =>{
 
                     this.$router.push('/Connexion');
                 })
             }
-        }*/
+        }
     }
 </script>
 
