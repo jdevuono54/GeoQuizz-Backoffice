@@ -97,7 +97,8 @@
                 };
                 axios.post("user/signin",parametre).then((response) =>{
 
-                    this.$router.push('/Connexion');
+                    /*this.$router.push('/Connexion');*/
+                    alert("ok")
                 })
             }
         }
