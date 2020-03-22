@@ -49,12 +49,13 @@
                 };*/
 
 
-                this.$axios.post("user/signup", {},{
-                    auth:{
-                        user_email:this.email,
-                        user_password:this.password
-                    }
-                }).then((response) =>{
+                this.$axios.post("user/signup",  {
+                    withCredentials: true
+                },{
+                    auth: {
+                        username: this.email,
+                        password: this.password
+                    }}).then((response) =>{
                     this.$router.push('/PostConnexion');
                     this.$store.commit('setSession',response.data);
                     alert("ok")
