@@ -95,7 +95,7 @@
                     zip_code: this.zip_code
 
                 };
-                this.$axios.post("user/signin",parametre).then((response) =>{
+                this.$axios.post("user/signup",parametre).then((response) =>{
 
                     this.$router.push('/Connexion');
                     /*console.log("ok")*/
