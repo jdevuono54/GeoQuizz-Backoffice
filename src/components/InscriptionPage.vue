@@ -97,8 +97,8 @@
                 };
                 this.$axios.post("user/signin",parametre).then((response) =>{
 
-                    /*this.$router.push('/Connexion');*/
-                    console.log("ok")
+                    this.$router.push('/Connexion');
+                    /*console.log("ok")*/
                 })
             }
         }

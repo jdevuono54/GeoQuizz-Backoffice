@@ -8,7 +8,7 @@
                 </div>
                 <div >
                     <form @submit.prevent="connexionMembre">
-                        <input type="text" placeholder="Entrer le nom d'utilisateur" v-model="email" required class="form-control"  >
+                        <input type="text" placeholder="Entrer votre adresse mail" v-model="email" required class="form-control"  >
                         <br>
                         <input type="password" placeholder="Entrer le mot de passe" v-model="password" required class="form-control">
                         <br>
@@ -32,27 +32,38 @@
         data: function () {
 
             return {
-                email:'',
-                password:''
+
+                    email:'',
+                    password:''
+
+
             }
         },
-        /*methods:{
+        methods:{
             connexionMembre(){
-                let parametre = {
+                /*let parametre = {
 
-                    email:this.email,
-                    password:this.password
+                        user_email:this.email,
+                        user_password:this.password
 
-                };
+                };*/
 
-                axios.post("members/signin",parametre).then((response) =>{
-                    this.$router.push('/');
+
+                this.$axios.post("user/signup", {},{
+                    auth:{
+                        user_email:this.email,
+                        user_password:this.password
+                    }
+                }).then((response) =>{
+                    this.$router.push('/PostConnexion');
                     this.$store.commit('setSession',response.data);
+                    alert("ok")
                 }).catch(error => {
                     alert(error.response.data.message);
+                    alert("non "+ this.user_email)
                 })
             }
-        }*/
+        }
 
     }
 </script>
