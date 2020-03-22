@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios.create({
   baseURL: 'http://api.backoffice.local:19280/'
 })
-window.axios = require('axios');
+
 
 new Vue({
   router,

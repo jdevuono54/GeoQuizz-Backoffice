@@ -34,7 +34,7 @@
                         </div>
                         <br>
                         <div>
-                            <input type="number" placeholder="Numéro de rue" v-model="street_number" required class="form-control"/>
+                            <input type="number" placeholder="Numéro de rue" v-model.number="street_number" required class="form-control"/>
                         </div>
                         <br>
                         <div>
@@ -42,7 +42,7 @@
                         </div>
                         <br>
                         <div>
-                            <input type="text" placeholder="Code Postal" v-model="zipcode" required class="form-control"/>
+                            <input type="number" placeholder="Code Postal" v-model.number="zip_code" required class="form-control"/>
                         </div>
                         <br>
                         <div>
@@ -74,7 +74,7 @@
                 street_number:'',
                 street:'',
                 city:'',
-                zipcode:''
+                zip_code:''
 
             }
 
@@ -92,13 +92,13 @@
                     street_number: this.street_number,
                     street: this.street,
                     city: this.city,
-                    zipcode: this.zipcode
+                    zip_code: this.zip_code
 
                 };
-                axios.post("user/signin",parametre).then((response) =>{
+                this.$axios.post("user/signin",parametre).then((response) =>{
 
                     /*this.$router.push('/Connexion');*/
-                    alert("ok")
+                    console.log("ok")
                 })
             }
         }
