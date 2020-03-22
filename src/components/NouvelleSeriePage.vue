@@ -14,7 +14,7 @@
                         </div>
                         <br>
                         <div>
-                            <input type="text" placeholder="Distance" v-model="distance" required class="form-control"/>
+                            <input type="number" placeholder="Distance" v-model.number="distance" required class="form-control"/>
                         </div>
                         <br>
                         <div>
@@ -22,15 +22,15 @@
                         </div>
                         <br>
                         <div>
-                            <input type="password" placeholder="Longitude" v-model="longitude" required class="form-control"/>
+                            <input type="text" placeholder="Longitude" v-model="longitude" required class="form-control"/>
                         </div>
                         <br>
                         <div>
-                            <input type="text" placeholder="Zoom" v-model.number="zoom" required class="form-control"/>
+                            <input type="number" placeholder="Zoom" v-model.number="zoom" required class="form-control"/>
                         </div>
                         <br>
                         <div>
-                            <input type="text" placeholder="Nombre de photo" v-model.number="nb_pictures" required class="form-control"/>
+                            <input type="number" placeholder="Nombre de photo" v-model.number="nb_pictures" required class="form-control"/>
                         </div>
                         <br>
                         <div>
@@ -84,11 +84,7 @@
 
                 };
                 this.$axios.post("series",parametre,{
-                    headers: { Authorization: "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3M" +
-                                                            "iOiJodHRwOlwvXC9hcGkuYmFja29mZmljZS5sb2NhbCIsImF1ZCI6Imh0dHA6XC9cL2FwaS5iYWNrb" +
-                                                            "2ZmaWNlLmxvY2FsIiwiaWF0IjoxNTg0ODg4MDM2LCJleHAiOjE1ODQ4OTE2MzYsInVpZCI6ImQ5NmU1NzY3L" +
-                                                            "TM2M2YtNGQyNS04NDkwLTg1NjBmM2MyMjU3ZCIsImx2bCI6MX0.sIQw-R0pL-sKzH3v7OdaLdcRtBPf2trAVZO6TB4" +
-                                                            "B2lK2e4mTmQBUXvj_1z9-EMxTmelUepGhcXFUIROz6lZKyQ" }
+                    headers: { Authorization: "Bearer " + this.$store.state.tokenSession }
                 }
             ).then((response) =>{
 
@@ -96,7 +92,8 @@
                     alert("ok")
                 })
             }
-        }
+        },
+
     }
 </script>
 

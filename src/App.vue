@@ -27,7 +27,7 @@
 
       if(!this.membreConnecter){
 
-        this.$router.push('Connexion')
+        this.$router.push('Home')
       }
     },
 

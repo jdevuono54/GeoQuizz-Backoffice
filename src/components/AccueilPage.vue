@@ -11,7 +11,7 @@
                         <label>Compléter une série </label><SearchBarSerie></SearchBarSerie>
                         <br>
                         <button class="btn">
-                            <router-link class="button_is_text" to="/Home">créer une nouvelle série</router-link>
+                            <router-link class="button_is_text" to="/NouvelleSerie">créer une nouvelle série</router-link>
                         </button>
                     </div>
                 </div>

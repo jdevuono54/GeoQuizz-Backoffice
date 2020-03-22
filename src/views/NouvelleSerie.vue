@@ -1,6 +1,6 @@
 <template>
     <div>
-        <InscriptionPage></InscriptionPage>
+        <NouvelleSeriePage></NouvelleSeriePage>
     </div>
 </template>
 
