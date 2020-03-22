@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Connexion from '../views/Connexion'
 import Inscription from "../views/Inscription";
 import PostConnexion from "../views/PostConnexion";
+import NouvelleSerie from "../views/NouvelleSerie";
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/PostConnexion',
     name: 'PostConnexion',
     component: PostConnexion
+  },
+  {
+    path: '/NouvelleSerie',
+    name: 'NouvelleSerie',
+    component: NouvelleSerie
   },
 
 

@@ -21,6 +21,22 @@
 <script>
   import Navbar from "./components/NavBar";
   export default {
-    components: {Navbar}
+    components: {Navbar},
+
+    mounted() {
+
+      if(!this.membreConnecter){
+
+        this.$router.push('Connexion')
+      }
+    },
+
+    computed: {
+
+      membreConnecter()
+      {
+        return this.$store.state.membre;
+      }
+    }
   }
 </script>

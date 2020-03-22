@@ -17,7 +17,7 @@ export default new Vuex.Store({
   mutations: {
     setSession(state,data){
       state.tokenSession=data.token;
-      /*state.membre=data.member;*/
+      state.membre=true;
     },
   },
   actions: {

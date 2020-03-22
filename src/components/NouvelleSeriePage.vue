@@ -83,10 +83,17 @@
                     nb_pictures:this.nb_pictures
 
                 };
-                this.$axios.post("series",parametre).then((response) =>{
+                this.$axios.post("series",parametre,{
+                    headers: { Authorization: "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3M" +
+                                                            "iOiJodHRwOlwvXC9hcGkuYmFja29mZmljZS5sb2NhbCIsImF1ZCI6Imh0dHA6XC9cL2FwaS5iYWNrb" +
+                                                            "2ZmaWNlLmxvY2FsIiwiaWF0IjoxNTg0ODg4MDM2LCJleHAiOjE1ODQ4OTE2MzYsInVpZCI6ImQ5NmU1NzY3L" +
+                                                            "TM2M2YtNGQyNS04NDkwLTg1NjBmM2MyMjU3ZCIsImx2bCI6MX0.sIQw-R0pL-sKzH3v7OdaLdcRtBPf2trAVZO6TB4" +
+                                                            "B2lK2e4mTmQBUXvj_1z9-EMxTmelUepGhcXFUIROz6lZKyQ" }
+                }
+            ).then((response) =>{
 
-                    this.$router.push('/Connexion');
-                    /*console.log("ok")*/
+                    /*this.$router.push('/Connexion');*/
+                    alert("ok")
                 })
             }
         }

@@ -58,10 +58,10 @@
                     }}).then((response) =>{
                     this.$router.push('/PostConnexion');
                     this.$store.commit('setSession',response.data);
-                    alert("ok")
+                    alert(response.data.token)
                 }).catch(error => {
                     alert(error.response.data.message);
-                    alert("non "+ this.user_email)
+
                 })
             }
         }
