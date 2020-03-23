@@ -8,12 +8,12 @@
                 </div>
                 <br>
                 <ul v-for="serie in $store.state.lesSeries" class="list-group">
-                    <li class="list-group-item" >Ville : {{serie.city}}
+                    <li class="list-group-item" v-on:click="idSerie" >
+                        Ville : {{serie.city}}
                     <div >Nombre de photos : {{serie.nb_pictures}}</div>
                     <div>Distance : {{serie.distance}}</div>
                     </li>
                 </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -32,7 +32,9 @@
             }
         },
         methods:{
-
+            idSerie(event){
+                alert(event.target.city)
+            }
         }
 
     }
