@@ -13,12 +13,16 @@ export default new Vuex.Store({
   state: {
     membre: false,
     tokenSession: false,
+    lesSeries: [],
   },
   mutations: {
     setSession(state,data){
       state.tokenSession=data.token;
       state.membre=true;
     },
+    setSeries(state,data){
+      state.lesSeries=data.series;
+    }
   },
   actions: {
   },

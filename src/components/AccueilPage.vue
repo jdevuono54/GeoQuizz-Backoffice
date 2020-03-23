@@ -8,7 +8,7 @@
                         <h1>GeoQuizz</h1>
                     </div>
                     <div class="choix">
-                        <label>Compléter une série </label><SearchBarSerie></SearchBarSerie>
+                        <button class="btn" v-on:click="listeSeries">Compléter une série </button>
                         <br>
                         <button class="btn">
                             <router-link class="button_is_text" to="/NouvelleSerie">créer une nouvelle série</router-link>
@@ -28,6 +28,16 @@
         comments: {
             SearchBarSerie
         },
+        methods:{
+            listeSeries()
+            {
+                this.$axios.get("series").then((response) =>{
+
+                    this.$store.commit('setSeries',response.data);
+                    console.log(this.$store.state.lesSeries[0])
+                })
+            }
+        }
 
 
     }

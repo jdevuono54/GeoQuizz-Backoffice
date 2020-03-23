@@ -32,23 +32,12 @@
         data: function () {
 
             return {
-
                     email:'',
                     password:''
-
-
             }
         },
         methods:{
             connexionMembre(){
-                /*let parametre = {
-
-                        user_email:this.email,
-                        user_password:this.password
-
-                };*/
-
-
                 this.$axios.post("user/signin",  {
                     withCredentials: true
                 },{
@@ -58,7 +47,6 @@
                     }}).then((response) =>{
                     this.$router.push('/PostConnexion');
                     this.$store.commit('setSession',response.data);
-                    alert(response.data.token)
                 }).catch(error => {
                     alert(error.response.data.message);
 

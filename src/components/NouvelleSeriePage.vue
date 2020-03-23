@@ -28,10 +28,10 @@
                         <div>
                             <input type="number" placeholder="Zoom" v-model.number="zoom" required class="form-control"/>
                         </div>
-                        <br>
+                        <!--<br>
                         <div>
                             <input type="number" placeholder="Nombre de photo" v-model.number="nb_pictures" required class="form-control"/>
-                        </div>
+                        </div>-->
                         <br>
                         <div>
                             <input class="btn" type="submit"  value="Ajouter la série">
@@ -60,14 +60,7 @@
                 longitude:'',
                 zoom:'',
                 nb_pictures:'',
-
-                config: {
-                    headers: { Authorization: `Bearer ${"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkuYmFja29mZmljZS5sb2NhbCIsImF1ZCI6Imh0dHA6XC9cL2FwaS5iYWNrb2ZmaWNlLmxvY2FsIiwiaWF0IjoxNTg0ODg4MDM2LCJleHAiOjE1ODQ4OTE2MzYsInVpZCI6ImQ5NmU1NzY3LTM2M2YtNGQyNS04NDkwLTg1NjBmM2MyMjU3ZCIsImx2bCI6MX0.sIQw-R0pL-sKzH3v7OdaLdcRtBPf2trAVZO6TB4B2lK2e4mTmQBUXvj_1z9-EMxTmelUepGhcXFUIROz6lZKyQ"}` }
-                }
-
-
             }
-
         },
 
         methods:{
@@ -80,7 +73,7 @@
                     latitude:this.latitude,
                     longitude:this.longitude,
                     zoom:this.zoom,
-                    nb_pictures:this.nb_pictures
+                    nb_pictures:0
 
                 };
                 this.$axios.post("series",parametre,{
