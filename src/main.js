@@ -5,6 +5,9 @@ import store from './store'
 import BootstrapVue from 'bootstrap-vue'
 import axios from 'axios'
 
+import {outils} from './outils'
+Vue.mixin(outils);
+
 Vue.use(BootstrapVue)
 
 Vue.prototype.$bus = new Vue()

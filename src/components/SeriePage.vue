@@ -1,4 +1,5 @@
 <template>
+
     <div class="container-fluid home">
         <div class="row">
             <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 container-game text-center">
@@ -6,43 +7,37 @@
                     <img alt="logo" src="../assets/logo_without_text.svg" width="64">
                     <h1>GeoQuizz</h1>
                 </div>
-                <br>
-                <ul v-for="serie in $store.state.lesSeries" class="list-group">
-                    <li class="list-group-item" >
-                       <router-link :to="{
-                    name : 'SeriePage',
-                    params : {
-                        identifiant : serie.id
-                    }}"> Ville : {{serie.city}}
-                       </router-link>
-                    <div >Nombre de photos : {{serie.nb_pictures}}</div>
+                <div class="list-group-item">
+                    <div>Ville : {{serie.city}}</div>
                     <div>Distance : {{serie.distance}}</div>
-                    </li>
-                </ul>
+                    <div>Nombre de photo: {{serie.nb_pictures}}</div>
+                </div>
             </div>
         </div>
     </div>
+
+
 </template>
 
 <script>
     export default {
-        name: 'ListSeriePage',
-        mounted() {
+        name : 'SeriePage',
 
-        },
-        data: function () {
-
+        data:function () {
             return {
-
+                serie : false
             }
+        },
+        mounted()  {
+            this.serie = this.getSerie(this.$route.params.identifiant);
+            /*alert(this.$route.params.identifiant)*/
         },
         methods:{
 
-        }
 
+        }
     }
 </script>
-
 <style lang="scss" scoped>
     .home {
         min-height: 100vh;
@@ -76,4 +71,3 @@
         }
     }
 </style>
-
