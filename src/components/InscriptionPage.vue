@@ -47,10 +47,7 @@
                         <br>
                         <div>
                             <input class="btn" type="submit"  value="valider l'inscription">
-
-                            <button class="btn" >
-                                <router-link class="button_is_text"  to='/Home' >Retour</router-link>
-                            </button>
+                            <b-btn class="btn"  to='/Home' >Retour</b-btn>
                         </div>
 
                     </form>
@@ -96,9 +93,7 @@
 
                 };
                 this.$axios.post("user/signup",parametre).then((response) =>{
-
                     this.$router.push('/Connexion');
-                    /*console.log("ok")*/
                 })
             }
         }
@@ -113,6 +108,10 @@
         .container-game {
             margin-top: 50vh;
             transform: translateY(-50%);
+
+            .title{
+                margin-top: 7em;
+            }
 
             h1 {
                 display: inline;

@@ -6,14 +6,27 @@
             <b-navbar-nav>
                 <b-nav-item to="Home">Accueil</b-nav-item>
             </b-navbar-nav>
+            <b-navbar-nav>
+                <b-nav-item v-on:click="deconnexion">Déconnexion</b-nav-item>
+            </b-navbar-nav>
         </b-collapse>
     </b-navbar>
 </template>
 
 <script>
     export default {
-        name: "Navbar"
+        name: "Navbar",
+
+        methods:{
+            deconnexion(){
+
+                this.$router.push('/Home');
+                this.$store.state.tokenSession = ''
+                this.$store.state.membre = false
+            }
+        }
     }
+
 </script>
 
 <style scoped lang="scss">

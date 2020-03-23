@@ -7,11 +7,18 @@
                     <img alt="logo" src="../assets/logo_without_text.svg" width="64">
                     <h1>GeoQuizz</h1>
                 </div>
+                <br>
+                <div>
+                    <h2> Serie séléctionée : </h2>
+                </div>
+                <br>
                 <div class="list-group-item">
                     <div>Ville : {{serie.city}}</div>
                     <div>Distance : {{serie.distance}}</div>
                     <div>Nombre de photo: {{serie.nb_pictures}}</div>
                 </div>
+                <b-btn class="btn">Ajouter une photo</b-btn>
+                <b-btn class="btn">Modifier la série</b-btn>
             </div>
         </div>
     </div>

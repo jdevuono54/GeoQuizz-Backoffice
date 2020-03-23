@@ -28,17 +28,14 @@
                         <div>
                             <input type="number" placeholder="Zoom" v-model.number="zoom" required class="form-control"/>
                         </div>
-                        <!--<br>
+                        <br>
                         <div>
                             <input type="number" placeholder="Nombre de photo" v-model.number="nb_pictures" required class="form-control"/>
-                        </div>-->
+                        </div>
                         <br>
                         <div>
                             <input class="btn" type="submit"  value="Ajouter la série">
-
-                            <button class="btn" >
-                                <router-link class="button_is_text"  to='/PostConnexion' >Retour</router-link>
-                            </button>
+                            <b-btn class="btn"  to='/PostConnexion' >Retour</b-btn>
                         </div>
 
                     </form>
@@ -73,7 +70,7 @@
                     latitude:this.latitude,
                     longitude:this.longitude,
                     zoom:this.zoom,
-                    nb_pictures:0
+                    nb_pictures:this.nb_pictures
 
                 };
                 this.$axios.post("series",parametre,{
@@ -81,8 +78,8 @@
                 }
             ).then((response) =>{
 
-                    /*this.$router.push('/Connexion');*/
-                    alert("ok")
+                    this.$router.push('/ListSerie');
+
                 })
             }
         },

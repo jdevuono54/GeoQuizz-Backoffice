@@ -13,9 +13,7 @@
                         <input type="password" placeholder="Entrer le mot de passe" v-model="password" required class="form-control">
                         <br>
                         <input type="submit"  value='LOGIN'  class="btn btn-primary">
-                        <button class="btn" >
-                            <router-link class="button_is_text"  to='/Inscription' >Créer un compte</router-link>
-                        </button>
+                        <b-btn class="btn"  to='/Inscription' >Créer un compte</b-btn>
                 </form>
                 </div>
             </div>

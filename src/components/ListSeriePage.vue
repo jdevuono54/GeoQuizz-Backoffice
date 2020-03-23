@@ -7,6 +7,8 @@
                     <h1>GeoQuizz</h1>
                 </div>
                 <br>
+                <h3>Séléctionnez une série</h3>
+                <br>
                 <ul v-for="serie in $store.state.lesSeries" class="list-group">
                     <li class="list-group-item" >
                        <router-link :to="{
@@ -19,6 +21,7 @@
                     <div>Distance : {{serie.distance}}</div>
                     </li>
                 </ul>
+                <b-btn class="btn" to="/PostConnexion">Retour</b-btn>
             </div>
         </div>
     </div>
@@ -51,6 +54,9 @@
         .container-game {
             margin-top: 50vh;
             transform: translateY(-50%);
+            .title{
+                margin-top: 5em;
+            }
 
             h1 {
                 display: inline;
