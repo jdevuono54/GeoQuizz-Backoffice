@@ -5,6 +5,7 @@ import Connexion from '../views/Connexion'
 import Inscription from "../views/Inscription";
 import PostConnexion from "../views/PostConnexion";
 import NouvelleSerie from "../views/NouvelleSerie";
+import ListSerie from "../views/ListSerie";
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/NouvelleSerie',
     name: 'NouvelleSerie',
     component: NouvelleSerie
+  },
+  {
+    path: '/ListSerie',
+    name: 'ListSerie',
+    component: ListSerie
   },
 
 

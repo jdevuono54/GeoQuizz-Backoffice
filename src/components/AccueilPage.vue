@@ -8,7 +8,9 @@
                         <h1>GeoQuizz</h1>
                     </div>
                     <div class="choix">
-                        <button class="btn" v-on:click="listeSeries">Compléter une série </button>
+                        <button class="btn"  v-on:click="listeSeries">
+                            <router-link class="button_is_text" to="/ListSerie">Compléter une série</router-link>
+                        </button>
                         <br>
                         <button class="btn">
                             <router-link class="button_is_text" to="/NouvelleSerie">créer une nouvelle série</router-link>

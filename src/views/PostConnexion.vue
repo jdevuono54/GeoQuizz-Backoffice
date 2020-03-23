@@ -6,7 +6,7 @@
 
 <script>
 
-    import AccueilPage from '@/components/AccueilPage.vue'
+    import AccueilPage from '../components/AccueilPage.vue'
 
     export default {
         name: 'PostConnexion',
