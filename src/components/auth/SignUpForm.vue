@@ -76,6 +76,15 @@
         methods:{
           SignUp(){
               this.$axios.post('user/signup', {
+                  "firstname": this.firstname,
+                  "lastname": this.lastname,
+                  "email": this.email,
+                  "password": this.password,
+                  "phone": this.phone,
+                  "street_number": parseInt(this.street_number),
+                  "street": this.street,
+                  "city": this.city,
+                  "zip_code": parseInt(this.zip_code)
               }).then((response) => {
                   console.log("Création du compte réussie");
                   this.$router.push("SignIn")
