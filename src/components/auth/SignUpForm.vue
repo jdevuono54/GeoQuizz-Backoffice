@@ -1,6 +1,6 @@
 <template>
     <div class="signUp-form col-lg-8 offset-lg-2 col-md-12">
-        <form>
+        <form v-on:submit.prevent="SignUp">
         <div class="form-row">
             <div class="col">
                 <input type="text" v-model="firstname" class="form-control" placeholder="Nom" required>
@@ -43,7 +43,7 @@
                 <input type="number" v-model="zip_code" class="form-control" placeholder="Code postal" required>
             </div>
         </div>
-        <button type="submit" @submit.prevent="SignUp" class="btn btn-primary btn-block" :disabled="!passwordsSame">S'inscrire</button>
+        <button type="submit" class="btn btn-primary btn-block" :disabled="!passwordsSame">S'inscrire</button>
         <b-btn type="button" class="btn btn-danger btn-block" to="signin">Retour</b-btn>
             <label v-if="!passwordsSame" class="error">Les mots de passe ne correspondent pas.</label>
 
@@ -75,7 +75,19 @@
         },
         methods:{
           SignUp(){
-              return null
+              this.$axios.post('user/signup', {
+              }).then((response) => {
+                  console.log("Création du compte réussie");
+                  this.$router.push("SignIn")
+                  this.$root.$bvToast.toast("Création du compte réussie !", {
+                      title: "Succès !",
+                      variant: "success",
+                      noCloseButton: true
+                  })
+              }).catch((e) => {
+                  console.log("Erreur lors de la création du compte")
+                  this.$root.makeToast("Erreur lors de la création du compte")
+              })
           }
         }
     }
