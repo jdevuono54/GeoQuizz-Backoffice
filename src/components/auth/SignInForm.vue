@@ -1,12 +1,14 @@
 <template>
     <div class="login-form col-6 offset-3">
+        <form>
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Votre adresse mail">
+            <input type="email" class="form-control" placeholder="Votre adresse mail" required>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Votre mot de passe">
+            <input type="password" class="form-control" placeholder="Votre mot de passe" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+        <button type="submit" @submit.prevent="signIn" class="btn btn-primary btn-block">Connexion</button>
+        </form>
         <router-link to="signup">Pas de compte ? S'inscrire</router-link>
     </div>
 </template>
@@ -15,9 +17,8 @@
     export default {
         name: "SignIn",
         methods:{
-            login(){
-
-
+            signIn(){
+                return null
             }
         }
     }

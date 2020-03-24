@@ -43,7 +43,7 @@
                 <input type="number" v-model="zip_code" class="form-control" placeholder="Code postal" required>
             </div>
         </div>
-        <button type="submit" @submit.prevent="" class="btn btn-primary btn-block" :disabled="!passwordsSame">S'inscrire</button>
+        <button type="submit" @submit.prevent="SignUp" class="btn btn-primary btn-block" :disabled="!passwordsSame">S'inscrire</button>
         <b-btn type="button" class="btn btn-danger btn-block" to="signin">Retour</b-btn>
             <label v-if="!passwordsSame" class="error">Les mots de passe ne correspondent pas.</label>
 
@@ -72,6 +72,11 @@
                 city:null,
                 zip_code:null
             }
+        },
+        methods:{
+          SignUp(){
+              return null
+          }
         }
     }
 </script>
