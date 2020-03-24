@@ -7,13 +7,19 @@
             <input type="password" class="form-control" placeholder="Votre mot de passe">
         </div>
         <button type="submit" class="btn btn-primary btn-block">Connexion</button>
-        <router-link to="Login">Pas de compte ? S'inscrire</router-link>
+        <router-link to="signup">Pas de compte ? S'inscrire</router-link>
     </div>
 </template>
 
 <script>
     export default {
-        name: "LoginForm"
+        name: "SignIn",
+        methods:{
+            login(){
+
+
+            }
+        }
     }
 </script>
 
