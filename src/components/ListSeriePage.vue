@@ -55,7 +55,7 @@
             margin-top: 50vh;
             transform: translateY(-50%);
             .title{
-                margin-top: 5em;
+                margin-top: 11em;
             }
 
             h1 {

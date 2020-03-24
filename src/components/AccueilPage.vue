@@ -32,7 +32,8 @@
                 this.$axios.get("series").then((response) =>{
 
                     this.$store.commit('setSeries',response.data);
-                    console.log(this.$store.state.lesSeries[0])
+                    /*console.log(this.$store.state.lesSeries)*/
+
                 })
             }
         }

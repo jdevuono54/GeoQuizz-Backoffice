@@ -5,24 +5,10 @@
             <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 container-game text-center">
                 <div class="title">
                     <img alt="logo" src="../assets/logo_without_text.svg" width="64">
-                    <h1>GeoQuizz</h1>
+                    <h2>GeoQuizz</h2>
                 </div>
-                <br>
-                <div>
-                    <h2> Serie séléctionée : </h2>
-                </div>
-                <br>
-                <div class="list-group-item">
-                    <div>Ville : {{serie.city}}</div>
-                    <div>Distance : {{serie.distance}}</div>
-                    <div>Nombre de photo: {{serie.nb_pictures}}</div>
-                </div>
-                <b-btn class="btn">Ajouter une photo</b-btn>
-                <b-btn class="btn" v-on:click="masquer_div('a_masquer')">Modifier la série</b-btn>
-                <br>
-                <div id="a_masquer">
-                    <br>
-                    <form @submit.prevent="modifSerie">
+                <div >
+                    <form @submit.prevent="setSerie">
                         <div>
                             <input type="text" placeholder="ville" v-model="city" required class="form-control"/>
                         </div>
@@ -48,51 +34,35 @@
                         </div>
                         <br>
                         <div>
-                            <input class="btn" type="submit"  value="Modifier">
+                            <input class="btn" type="submit"  value="Ajouter la série">
+                            <b-btn class="btn"  to='/PostConnexion' >Retour</b-btn>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script>
     export default {
-        name : 'SeriePage',
+        name: "ModificationSerie",
 
         data:function () {
             return {
-                serie : false,
-
                 city:'',
                 distance:'',
                 latitude:'',
                 longitude:'',
                 zoom:'',
                 nb_pictures:'',
-
             }
         },
-        mounted()  {
-            this.serie = this.getSerie(this.$route.params.identifiant);
-            /*alert(this.$route.params.identifiant)*/
-        },
+
         methods:{
-
-             masquer_div(id)
-                {
-                    if (document.getElementById(id).style.display == 'none') {
-                        document.getElementById(id).style.display = 'block';
-                    }
-                    else {
-                        document.getElementById(id).style.display = 'none';
-                    }
-                },
-            modifSerie(){
-
+            setSerie()
+            {
                 let parametre = {
 
                     city:this.city,
@@ -100,23 +70,23 @@
                     latitude:this.latitude,
                     longitude:this.longitude,
                     zoom:this.zoom,
-                    nb_pictures:this.nb_pictures,
-                    id: this.serie.id
+                    nb_pictures:this.nb_pictures
 
                 };
-                this.$axios.put("series/"+this.serie.id,parametre,{
+                this.$axios.post("series",parametre,{
                         headers: { Authorization: "Bearer " + this.$store.state.tokenSession }
                     }
                 ).then((response) =>{
 
-                    this.$router.push('/PostConnexion');
-                    alert('Série modifié')
+                    this.$router.push('/ListSerie');
 
                 })
             }
-        }
+        },
+
     }
 </script>
+
 <style lang="scss" scoped>
     .home {
         min-height: 100vh;
@@ -125,9 +95,6 @@
         .container-game {
             margin-top: 50vh;
             transform: translateY(-50%);
-            .title{
-                margin-top: 10em;
-            }
 
             h1 {
                 display: inline;
@@ -145,12 +112,6 @@
                 color: dodgerblue;
                 width: 10em;
 
-            }
-            .listSerie{
-                text-align: left;
-            }
-            #a_masquer{
-                display: none;
             }
 
         }

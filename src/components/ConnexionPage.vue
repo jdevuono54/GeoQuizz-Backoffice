@@ -45,6 +45,8 @@
                     }}).then((response) =>{
                     this.$router.push('/PostConnexion');
                     this.$store.commit('setSession',response.data);
+
+
                 }).catch(error => {
                     alert(error.response.data.message);
 
