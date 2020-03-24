@@ -16,13 +16,16 @@
                     <div>Ville : {{serie.city}}</div>
                     <div>Distance : {{serie.distance}}</div>
                     <div>Nombre de photo: {{serie.nb_pictures}}</div>
+                    <b-btn class="btn" v-on:click="masquer_div('FormModif')">Modifier la série</b-btn>
                 </div>
-                <b-btn class="btn">Ajouter une photo</b-btn>
-                <b-btn class="btn" v-on:click="masquer_div('a_masquer')">Modifier la série</b-btn>
+                <b-btn class="btn">Ajouter une photo à partir de l'application</b-btn>
+                <b-btn v-on:click="masquer_div('FormTelecharger')">Télécharger une photo</b-btn>
+
                 <br>
-                <div id="a_masquer">
+                <div id="FormModif">
                     <br>
                     <form @submit.prevent="modifSerie">
+                        <h5>Modifiez la série: </h5>
                         <div>
                             <input type="text" placeholder="ville" v-model="city" required class="form-control"/>
                         </div>
@@ -52,6 +55,8 @@
                         </div>
                     </form>
                 </div>
+                <br>
+                <TelechargerPhoto  id="FormTelecharger" ></TelechargerPhoto>
             </div>
         </div>
     </div>
@@ -60,8 +65,12 @@
 </template>
 
 <script>
+    import TelechargerPhoto from "./TelechargerPhoto";
     export default {
         name : 'SeriePage',
+        components:{
+            TelechargerPhoto
+        },
 
         data:function () {
             return {
@@ -143,13 +152,13 @@
                 margin-left: 2em;
                 background-color: lightgrey;
                 color: dodgerblue;
-                width: 10em;
+                width: 13em;
 
             }
             .listSerie{
                 text-align: left;
             }
-            #a_masquer{
+            #FormModif, #FormTelecharger{
                 display: none;
             }
 
