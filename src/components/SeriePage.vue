@@ -18,7 +18,7 @@
                     <div>Nombre de photo: {{serie.nb_pictures}}</div>
                     <b-btn class="btn" v-on:click="masquer_div('FormModif')">Modifier la série</b-btn>
                 </div>
-                <b-btn class="btn">Ajouter une photo à partir de l'application</b-btn>
+                <b-btn class="btn" v-on:click="listPhoto" to="/ListPicture">Ajouter une photo à partir de l'application</b-btn>
                 <b-btn v-on:click="masquer_div('FormTelecharger')">Télécharger une photo</b-btn>
 
                 <br>
@@ -75,6 +75,7 @@
         data:function () {
             return {
                 serie : false,
+                ToutePhoto: [],
 
                 city:'',
                 distance:'',
@@ -120,6 +121,17 @@
 
                     this.$router.push('/PostConnexion');
                     alert('Série modifié')
+
+                })
+            },
+            listPhoto(){
+
+                this.$axios.get("pictures/",{
+                        headers: { Authorization: "Bearer " + this.$store.state.tokenSession }
+                    }
+                ).then((response) =>{
+                    this.$store.commit('setPicture',response.data);
+                    alert("ok")
 
                 })
             }

@@ -29,10 +29,12 @@
         methods:{
             listeSeries()
             {
-                this.$axios.get("series").then((response) =>{
+                this.$axios.get("series", {
+                    headers: { Authorization: "Bearer " + this.$store.state.tokenSession }
+                }).then((response) =>{
 
                     this.$store.commit('setSeries',response.data);
-                    /*console.log(this.$store.state.lesSeries)*/
+                    console.log(this.$store.state.lesSeries)
 
                 })
             }

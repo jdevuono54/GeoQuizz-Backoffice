@@ -33,7 +33,10 @@
                 latitude:'',
                 longitude:'',
                 description:'',
-                link:''
+                link:'',
+
+                serie: false,
+                tbPhoto:[]
             }
         },
         methods:{
@@ -46,15 +49,27 @@
                     description:this.description,
                     link:this.link
                 };
+
+
                 this.$axios.post("picture",parametre,{
                     headers: { Authorization: "Bearer " + this.$store.state.tokenSession
                     }
                 }).then((response) =>{
+                    alert(this.$route.params.identifiant)
+                    /*this.tbPhoto= response.data.id*/
+                    /*this.$axios.post("series"+this.$route.params.identifiant,this.tbPhoto ,{
+                        headers: { Authorization: "Bearer " + this.$store.state.tokenSession
+                        }
+                    }).then((response) =>{
 
-                    alert('Photo enregistré')
 
+                    })*/
                 })
             }
+        },
+        mounted() {
+            this.serie = this.getSerie(this.$route.params.identifiant);
+            /*alert(this.$route.params.identifiant)*/
         }
     }
 </script>

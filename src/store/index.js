@@ -14,16 +14,23 @@ export default new Vuex.Store({
   state: {
     membre: false,
     tokenSession: false,
+    user_id:'',
     lesSeries: [],
+    listeDesPhotos: []
   },
   mutations: {
     setSession(state,data){
       state.tokenSession=data.token;
       state.membre=true;
+      state.user_id=data.user.id
     },
     setSeries(state,data){
-      state.lesSeries=data.series;
+      state.lesSeries=data.pictures;
+    },
+    setPicture(state,data){
+      state.listeDesPhotos=data.pictures
     }
+
   },
   actions: {
   },
