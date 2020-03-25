@@ -2,16 +2,17 @@
     <div class="container-fluid Home">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 container-home text-center">
-                <b-btn type="button" class="btn btn-block btn-primary">Créer une série</b-btn>
-                <b-btn type="button" class="btn btn-block btn-primary">Modifier une série</b-btn>
+                <home-menu></home-menu>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import HomeMenu from "../components/home/HomeMenu";
     export default {
-        name: "Home"
+        name: "Home",
+        components: {HomeMenu}
     }
 </script>
 
@@ -25,9 +26,6 @@
             margin-top: 50vh;
             transform: translateY(-50%);
 
-            button{
-                background-color: #007bff;
-            }
         }
     }
 </style>

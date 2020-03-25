@@ -33,7 +33,7 @@
                     }
                 }).then((response) => {
                     this.$store.commit('saveUser', response.data);
-                    this.$router.push('/Home');
+                    this.$router.push('/home');
                     console.log("Connexion réussie")
                 }).catch(error => {
                     console.log("Erreur lors de la connexion")

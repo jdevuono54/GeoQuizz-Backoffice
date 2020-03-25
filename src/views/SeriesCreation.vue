@@ -1,0 +1,71 @@
+<template>
+    <div class="container-fluid Creation">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 container-creation text-center">
+                <div class="title">
+                    <img alt="logo" src="../assets/logo_without_text.svg" width="64">
+                    <h3>Créer une nouvelle série</h3>
+                </div>
+                <CreationForm :series="series" v-if="step === 1"/>
+                <MapForm :series="series" v-if="step === 2"></MapForm>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import CreationForm from "../components/creation/CreationForm";
+    import MapForm from "../components/creation/MapForm";
+    export default {
+        name: "SeriesCreation",
+        components: {MapForm, CreationForm},
+        data(){
+            return{
+                step:1,
+                series:{
+                    city:null,
+                    distance:null,
+                    nb_pictures:null,
+                    latitude:null,
+                    longitude:null,
+                    zoom:null
+                }
+            }
+        },
+        beforeDestroy() {
+            this.$bus.$off();
+        },
+        mounted(){
+            this.$bus.$on('changeStep',(step) => {
+                this.step = step;
+            })
+        }
+    }
+</script>
+
+<style scoped lang="scss">
+    .Creation {
+        min-height: 100vh;
+        background-image: url("../assets/auth/background_image.svg");
+        background-size: cover;
+
+        .container-creation {
+            margin-top: 30vh;
+            transform: translateY(-30%);
+
+            h3 {
+                display: block;
+                font-weight: bold;
+            }
+
+            img {
+                margin-right: 1%;
+                vertical-align: top;
+            }
+
+            .title {
+                margin-bottom: 1em;
+            }
+        }
+    }
+</style>

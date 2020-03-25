@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import SignIn from "../views/SignIn";
 import SignUp from "../views/SignUp";
 import Home from "../views/Home";
+import SeriesCreation from "../views/SeriesCreation";
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     name: 'Home',
     alias: "/",
     component: Home
+  },
+  {
+    path: '/create',
+    name: 'Create',
+    component: SeriesCreation
   },
   {
     path: '*',
