@@ -6,6 +6,14 @@
             </div>
         </div>
         <div class="form-row">
+            <b-form-file
+                    v-model="picture.img"
+                    :state="Boolean(picture.img)"
+                    placeholder="Importer votre image"
+                    drop-placeholder="Glissez votre image içi."
+            ></b-form-file>
+        </div>
+        <div class="form-row">
             <div class="col">
                 <div><label>Voulez vous ajouter directement la photo à une série éxistante ?</label></div>
                 <search-bar-serie></search-bar-serie>
@@ -32,5 +40,6 @@
 <style scoped>
     .col{
         margin-bottom: 1em;
+        margin-top: 1em;
     }
 </style>

@@ -34,6 +34,7 @@
                 step:1,
                 picture:{
                     description:null,
+                    img:null,
                     series:{
                         id_series:null
                     }
@@ -49,6 +50,7 @@
                 this.step = 1;
                 this.picture = {
                     description:null,
+                    img:null,
                     series:{
                         id_series:null
                     }
