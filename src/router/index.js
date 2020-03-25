@@ -4,6 +4,7 @@ import SignIn from "../views/SignIn";
 import SignUp from "../views/SignUp";
 import Home from "../views/Home";
 import SeriesCreation from "../views/SeriesCreation";
+import Library from "../views/Library";
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,11 @@ const routes = [
     path: '/create',
     name: 'Create',
     component: SeriesCreation
+  },
+  {
+    path: '/library',
+    name: 'Library',
+    component: Library
   },
   {
     path: '*',
