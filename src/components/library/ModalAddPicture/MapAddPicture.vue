@@ -68,12 +68,28 @@
                     let bodyFormData = new FormData();
                     bodyFormData.set('image', imgB64);
                     this.$axios.post("https://api.imgbb.com/1/upload?key="+this.apiKey,bodyFormData).then((response) => {
+                        this.addImgBdd(response.data.data.url)
                         console.log("Envoie à imgBB réussie")
                         console.log(response.data)
                     }).catch(error => {
                         this.$root.makeToast("Erreur lors de l'envoi à imgBB")
                         console.log(error.response)
                     })
+            },
+            addImgBdd(link){
+                this.$axios.post("pictures", {
+                    description:this.picture.description,
+                    latitude:this.picture.latLng.lat,
+                    longitude:this.picture.latLng.lng,
+                    link:link
+                }, {
+                    headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
+                }).then((response) => {
+                    console.log("Enregistrement de la photo réussie")
+                }).catch(error => {
+                    console.log("Erreur lors de l'enregistrement de la photo")
+                    this.$root.makeToast("Erreur lors de l'enregistrement de la photo")
+                })
             }
         },
         mounted() {
