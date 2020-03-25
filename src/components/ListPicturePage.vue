@@ -13,6 +13,8 @@
                     <li class="list-group-item" >
                         <div> description : {{photo.description}}</div>
                         <div>lien : {{photo.link}}</div>
+                        <div>{{photo.id}}</div>
+
                     </li>
                 </ul>
                 <b-btn class="btn" to="/PostConnexion">Retour</b-btn>

@@ -16,7 +16,8 @@ export default new Vuex.Store({
     tokenSession: false,
     user_id:'',
     lesSeries: [],
-    listeDesPhotos: []
+    listeDesPhotos: [],
+    idPhoto:''
   },
   mutations: {
     setSession(state,data){
@@ -25,10 +26,13 @@ export default new Vuex.Store({
       state.user_id=data.user.id
     },
     setSeries(state,data){
-      state.lesSeries=data.pictures;
+      state.lesSeries=data.series;
     },
     setPicture(state,data){
       state.listeDesPhotos=data.pictures
+    },
+    setIdPhoto(state,data){
+      state.idPhoto=data.pictures
     }
 
   },

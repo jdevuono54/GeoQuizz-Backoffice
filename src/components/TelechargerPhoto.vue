@@ -51,19 +51,20 @@
                 };
 
 
-                this.$axios.post("picture",parametre,{
+                this.$axios.post("pictures",parametre,{
                     headers: { Authorization: "Bearer " + this.$store.state.tokenSession
                     }
                 }).then((response) =>{
-                    alert(this.$route.params.identifiant)
-                    /*this.tbPhoto= response.data.id*/
-                    /*this.$axios.post("series"+this.$route.params.identifiant,this.tbPhoto ,{
+
+                    this.$store.commit('setIdPhoto',response.data);
+                    this.$axios.post("serie/"+this.$route.params.identifiant+"/picture",this.$store.state.idPhoto ,{
                         headers: { Authorization: "Bearer " + this.$store.state.tokenSession
                         }
                     }).then((response) =>{
 
+                            alert("photo ajouté à la série !")
 
-                    })*/
+                    })
                 })
             }
         },
