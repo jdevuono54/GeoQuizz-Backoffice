@@ -4,7 +4,8 @@
             Ajouter une photo à votre bibliothèque
         </template>
         <div class="d-block text-center">
-            <FormAddPicture v-if="step ===1" :picture="picture"></FormAddPicture>
+            <FormAddPicture v-if="step === 1" :picture="picture"></FormAddPicture>
+            <MapAddPicture v-if="step === 2"></MapAddPicture>
             <b-btn type="button" class="btn btn-danger btn-block btnCancel" @click="cancel">Annuler</b-btn>
         </div>
     </b-modal>
@@ -12,16 +13,17 @@
 
 <script>
     import FormAddPicture from "./FormAddPicture";
+    import MapAddPicture from "./MapAddPicture";
     export default {
         name: "ModalAllPicture",
-        components: {FormAddPicture},
+        components: {MapAddPicture, FormAddPicture},
         beforeDestroy() {
             this.$bus.$off();
         },
         mounted() {
             this.$bus.$on('changeStep',(step) => {
+                this.step = step;
                 console.log(this.picture)
-                //this.step = step;
             })
             this.$bus.$on('selectedSerieChange',(serie) => {
                 this.picture.series.id_series = serie.id
@@ -41,7 +43,7 @@
         methods:{
             cancel(){
                 this.$bvModal.hide('modal-addpicture');
-                //this.resetModal()
+                this.resetModal()
             },
             resetModal(){
                 this.step = 1;

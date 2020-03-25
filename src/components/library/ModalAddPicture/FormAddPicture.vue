@@ -11,7 +11,7 @@
                 <search-bar-serie></search-bar-serie>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Suivant</button>
+        <button type="submit" class="btn btn-primary btn-block" :disabled="picture.description === null">Suivant</button>
     </form>
 </template>
 

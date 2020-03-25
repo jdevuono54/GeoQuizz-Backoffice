@@ -8,16 +8,16 @@
                 <PictureBox :picture="picture"></PictureBox>
             </div>
         </div>
-        <ModalAllPicture></ModalAllPicture>
+        <ModalAddPicture></ModalAddPicture>
     </div>
 </template>
 
 <script>
     import PictureBox from "./PictureBox";
-    import ModalAllPicture from "./ModalAddPicture/ModalAddPicture";
+    import ModalAddPicture from "./ModalAddPicture/ModalAddPicture";
     export default {
         name: "LibraryBox",
-        components: {ModalAllPicture, PictureBox},
+        components: {ModalAddPicture, PictureBox},
         beforeDestroy() {
             this.$bus.$off();
         },
