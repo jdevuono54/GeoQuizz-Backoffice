@@ -1,5 +1,4 @@
 <template>
-
     <div class="container-fluid home">
         <div class="row">
             <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 container-game text-center">
@@ -9,7 +8,7 @@
                 </div>
                 <br>
                 <div>
-                    <h2> Serie séléctionée : </h2>
+                    <h2> Série séléctionée : </h2>
                 </div>
                 <br>
                 <div class="list-group-item">
@@ -18,8 +17,9 @@
                     <div>Nombre de photo: {{serie.nb_pictures}}</div>
                     <b-btn class="btn" v-on:click="masquer_div('FormModif')">Modifier la série</b-btn>
                 </div>
-                <b-btn class="btn" v-on:click="listPhoto" to="/ListPicture">Ajouter une photo à partir de l'application</b-btn>
-                <b-btn v-on:click="masquer_div('FormTelecharger')">Télécharger une photo</b-btn>
+                <b-btn class="btn" v-on:click="listPhoto" to="/ListPicture">Mes photos</b-btn>
+                <b-btn v-on:click="masquer_div('FormTelecharger')">Importer</b-btn>
+                <b-btn to="/ListSeriegit">Retour</b-btn>
 
                 <br>
                 <div id="FormModif">
@@ -131,8 +131,6 @@
                     }
                 ).then((response) =>{
                     this.$store.commit('setPicture',response.data);
-                    alert("ok")
-
                 })
             }
         }
@@ -164,7 +162,7 @@
                 margin-left: 2em;
                 background-color: lightgrey;
                 color: dodgerblue;
-                width: 13em;
+                width: 12em;
 
             }
             .listSerie{
