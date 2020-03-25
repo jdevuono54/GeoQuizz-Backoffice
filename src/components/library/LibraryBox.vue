@@ -1,21 +1,23 @@
 <template>
     <div class="container-fluid libraryBox">
         <div class="row text-center rowBtnAddPicture">
-            <button type="button" class="btn btn-primary btnAddPicture col-sm-12 col-md-3 offset-md-9 col-lg-2 offset-lg-10">Ajouter une photo</button>
+            <button type="button" @click="showModalAddPicture" class="btn btn-primary btnAddPicture col-sm-12 col-md-3 offset-md-9 col-lg-2 offset-lg-10">Ajouter une photo</button>
         </div>
         <div class="row">
             <div class="pictureBox col-sm-12 col-md-3 col-lg-2" v-for="picture in picturesUser">
                 <PictureBox :picture="picture"></PictureBox>
             </div>
         </div>
+        <ModalAllPicture></ModalAllPicture>
     </div>
 </template>
 
 <script>
     import PictureBox from "./PictureBox";
+    import ModalAllPicture from "./ModalAddPicture";
     export default {
         name: "LibraryBox",
-        components: {PictureBox},
+        components: {ModalAllPicture, PictureBox},
         mounted(){
             this.getAllPicturesUser();
         },
@@ -35,6 +37,9 @@
                     console.log("Erreur lors de la connexion")
                     this.$root.makeToast(error.response.data.message)
                 })
+            },
+            showModalAddPicture(){
+                this.$bvModal.show("modal-addpicture");
             }
         }
     }
