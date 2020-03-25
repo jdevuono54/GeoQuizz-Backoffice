@@ -12,8 +12,7 @@
                 <ul v-for="photo in $store.state.listeDesPhotos" class="list-group">
                     <li class="list-group-item" >
                         <div> description : {{photo.description}}</div>
-                        <div>lien : {{photo.link}}</div>
-                        <div>{{photo.id}}</div>
+                        <img v-bind:src="photo.link" height="50%" width="30%">
 
                     </li>
                 </ul>
