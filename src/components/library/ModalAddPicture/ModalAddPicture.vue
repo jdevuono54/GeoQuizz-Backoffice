@@ -5,7 +5,7 @@
         </template>
         <div class="d-block text-center">
             <FormAddPicture v-if="step === 1" :picture="picture"></FormAddPicture>
-            <MapAddPicture v-if="step === 2"></MapAddPicture>
+            <MapAddPicture v-if="step === 2" :picture="picture"></MapAddPicture>
             <b-btn type="button" class="btn btn-danger btn-block btnCancel" @click="cancel">Annuler</b-btn>
         </div>
     </b-modal>
