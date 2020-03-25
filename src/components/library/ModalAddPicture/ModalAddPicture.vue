@@ -4,15 +4,21 @@
             Ajouter une photo à votre bibliothèque
         </template>
         <div class="d-block text-center">
-            <h3>Hello From This Modal!</h3>
+            <FormAddPicture></FormAddPicture>
         </div>
-        <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-example')">Close Me</b-button>
     </b-modal>
 </template>
 
 <script>
+    import FormAddPicture from "./FormAddPicture";
     export default {
-        name: "ModalAllPicture"
+        name: "ModalAllPicture",
+        components: {FormAddPicture},
+        data(){
+            return{
+                step:1
+            }
+        }
     }
 </script>
 

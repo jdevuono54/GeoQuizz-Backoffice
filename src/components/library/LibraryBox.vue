@@ -14,7 +14,7 @@
 
 <script>
     import PictureBox from "./PictureBox";
-    import ModalAllPicture from "./ModalAddPicture";
+    import ModalAllPicture from "./ModalAddPicture/ModalAddPicture";
     export default {
         name: "LibraryBox",
         components: {ModalAllPicture, PictureBox},
