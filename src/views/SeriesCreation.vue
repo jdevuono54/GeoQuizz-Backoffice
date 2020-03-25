@@ -39,6 +39,30 @@
             this.$bus.$on('changeStep',(step) => {
                 this.step = step;
             })
+            this.$bus.$on('createSeries',() => {
+                this.createSeries();
+            })
+        },
+        methods:{
+          createSeries(){
+              this.$axios.post("series", {
+                  city:this.series.city,
+                  distance:parseInt(this.series.distance),
+                  latitude:this.series.latitude.toString(),
+                  longitude:this.series.longitude.toString(),
+                  zoom:parseInt(this.series.zoom),
+                  nb_pictures:this.series.nb_pictures
+              }, {
+                  headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
+              }).then((response) => {
+                  this.$router.push("home")
+                  console.log("Création de la série réussie")
+              }).catch(error => {
+                  console.log("Erreur lors de la création de la série")
+                  console.log(error.response.data)
+                  this.$root.makeToast("Erreur lors de la création de la série")
+              })
+          }
         }
     }
 </script>
