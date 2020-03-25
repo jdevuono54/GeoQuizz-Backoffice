@@ -85,10 +85,25 @@
                 }, {
                     headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
                 }).then((response) => {
+                    if(this.picture.series.id_series !== null){
+                        this.addImgToSeriesBdd(response.data.pictures.id);
+                    }
                     console.log("Enregistrement de la photo réussie")
                 }).catch(error => {
                     console.log("Erreur lors de l'enregistrement de la photo")
                     this.$root.makeToast("Erreur lors de l'enregistrement de la photo")
+                })
+            },
+            addImgToSeriesBdd(idImg){
+                this.$axios.post("serie/"+this.picture.series.id_series+"/picture", {
+                    id:idImg
+                }, {
+                    headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
+                }).then((response) => {
+                    console.log("Association de la photo à la série réussie")
+                }).catch(error => {
+                    console.log("Erreur lors de l'association de la photo à la série")
+                    this.$root.makeToast("Erreur lors de l'association de la photo à la série")
                 })
             }
         },
