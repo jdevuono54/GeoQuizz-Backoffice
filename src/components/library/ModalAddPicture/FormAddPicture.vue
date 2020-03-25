@@ -8,6 +8,7 @@
         <div class="form-row">
             <div class="col">
                 <div><label>Voulez vous ajouter directement la photo à une série éxistante ?</label></div>
+                <search-bar-serie></search-bar-serie>
             </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Suivant</button>
@@ -15,12 +16,14 @@
 </template>
 
 <script>
+    import SearchBarSerie from "./SearchBarSerie";
     export default {
         name: "FormAddPicture",
+        components: {SearchBarSerie},
         props:["picture"],
         methods:{
             nextStep(){
-                return null;
+                this.$bus.$emit("changeStep",2);
             }
         }
     }

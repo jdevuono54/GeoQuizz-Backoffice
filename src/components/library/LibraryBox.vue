@@ -18,6 +18,9 @@
     export default {
         name: "LibraryBox",
         components: {ModalAllPicture, PictureBox},
+        beforeDestroy() {
+            this.$bus.$off();
+        },
         mounted(){
             this.getAllPicturesUser();
         },
