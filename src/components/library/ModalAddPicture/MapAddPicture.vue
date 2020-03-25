@@ -3,9 +3,10 @@
         <div class="col">
             <div><label>Placer la photo sur la map</label></div>
 
-            <l-map id="map" ref="map" :zoom="zoom" :center="center">
+            <l-map id="map" @click="addMarker" ref="map" :zoom="6" :center="center">
                 <l-tile-layer :url="url"/>
             </l-map>
+            <button type="button" class="btn btn-primary btn-block" :disabled="!marker" @click="addPicture">Ajouter la photo</button>
         </div>
     </div>
 </template>
@@ -29,7 +30,50 @@
                 loopLoadMap:null,
                 url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 center: latLng("46.227638", "2.213749"),
-                zoom: 6
+                icon: L.icon({
+                    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+                    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+                    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png')
+                }),
+                marker:null,
+                apiKey:"0b0174ed0aded05168ca96a1ea5e9e84"
+            }
+        },
+        methods:{
+            addMarker(e){
+                if(this.marker === null){
+                    this.marker = new L.marker(e.latlng, { icon : this.icon }).addTo(this.$refs.map.mapObject);
+                    this.picture.latLng = e.latlng;
+                }
+                else{
+                    this.marker.remove();
+                    this.marker = null;
+                    this.picture.latLng = null;
+                }
+            },
+            addPicture(){
+                let reader = new FileReader();
+                reader.readAsDataURL(this.picture.img);
+                reader.onload = () => {
+                    let result = reader.result.substring(23)
+                    this.postToImgBB(result);
+                };
+                reader.onerror = function (error) {
+                    console.log('Error: ', error);
+                    this.$root.makeToast("Erreur lors de la conversion de l'image")
+
+                };
+            },
+            postToImgBB(imgB64){
+                    let bodyFormData = new FormData();
+                    bodyFormData.set('image', imgB64);
+                    this.$axios.post("https://api.imgbb.com/1/upload?key="+this.apiKey,bodyFormData).then((response) => {
+                        console.log("Envoie à imgBB réussie")
+                        console.log(response.data)
+                    }).catch(error => {
+                        this.$root.makeToast("Erreur lors de l'envoi à imgBB")
+                        console.log(error.response)
+                    })
             }
         },
         mounted() {

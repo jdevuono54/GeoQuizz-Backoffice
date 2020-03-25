@@ -23,7 +23,6 @@
         mounted() {
             this.$bus.$on('changeStep',(step) => {
                 this.step = step;
-                console.log(this.picture)
             })
             this.$bus.$on('selectedSerieChange',(serie) => {
                 this.picture.series.id_series = serie.id
@@ -35,6 +34,7 @@
                 picture:{
                     description:null,
                     img:null,
+                    latLng:null,
                     series:{
                         id_series:null
                     }
@@ -51,10 +51,17 @@
                 this.picture = {
                     description:null,
                     img:null,
+                    latLng:null,
                     series:{
                         id_series:null
                     }
                 }
+            },
+            addPictures(){
+
+            },
+            addImgBB(){
+
             }
         }
     }
