@@ -12,6 +12,7 @@
                     placeholder="Importer votre image"
                     drop-placeholder="Glissez votre image içi."
                     accept=".jpg, .png"
+                    @change="testExtensionImg"
             ></b-form-file>
         </div>
         <div class="form-row">
@@ -31,6 +32,14 @@
         components: {SearchBarSerie},
         props:["picture"],
         methods:{
+            testExtensionImg(e){
+                if(e.target.value.endsWith(".jpg") || e.target.value.endsWith(".png")){
+                    console.log("Image valide")
+                }else{
+                    e.target.value = null;
+                    console.log("Image invalide")
+                }
+            },
             nextStep(){
                 this.$bus.$emit("changeStep",2);
             }
