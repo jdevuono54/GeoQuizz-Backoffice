@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import UpdateSeriesMenu from "../components/update/UpdateSearchMenu/UpdateSeriesMenu";
+    import UpdateSeriesMenu from "../components/update/updateSearchMenu/UpdateSeriesMenu";
     export default {
         name: "SeriesUpdate",
         components: {UpdateSeriesMenu}

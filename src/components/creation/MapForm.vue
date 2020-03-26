@@ -4,7 +4,8 @@
         <l-map id="map" ref="map" :zoom="6" :center="center">
             <l-tile-layer :url="url"/>
         </l-map>
-        <button type="button" class="btn btn-primary btn-block" @click="validMap">Créer ma série !</button>
+        <button type="button" class="btn btn-primary btn-block" @click="validMap" v-if="this.series.latitude === null">Créer ma série !</button>
+        <button type="button" class="btn btn-primary btn-block" @click="validMap" v-if="this.series.latitude !== null">Modifier ma série !</button>
         <b-btn type="button" class="btn btn-danger btn-block" @click="prevStep">Retour</b-btn>
     </div>
 </template>
@@ -23,11 +24,21 @@
             LTileLayer,
             LMarker,
         },
+        computed:{
+          center:function(){
+              if(this.series.latitude !== null && this.series.longitude !== null){
+                  console.log(this.series)
+                  return latLng(this.series.latitude,this.series.longitude);
+              }
+              else{
+                  return latLng("46.227638", "2.213749");
+              }
+          }
+        },
         data(){
             return{
                 loopLoadMap:null,
-                url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                center: latLng("46.227638", "2.213749"),
+                url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
             }
         },
         methods:{
@@ -39,7 +50,14 @@
                 this.series.longitude = this.$refs.map.mapObject.getCenter().lng;
                 this.series.zoom = this.$refs.map.mapObject.getZoom();
 
-                this.$bus.$emit("createSeries");
+                if(this.series.id === undefined){
+                    console.log("Création de la série")
+                    this.$bus.$emit("createSeries");
+                }
+                else{
+                    console.log("Mise à jour de la série")
+                    this.$bus.$emit("updateSeries");
+                }
             }
         },
         mounted() {
