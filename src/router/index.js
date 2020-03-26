@@ -5,6 +5,7 @@ import SignUp from "../views/SignUp";
 import Home from "../views/Home";
 import SeriesCreation from "../views/SeriesCreation";
 import Library from "../views/Library";
+import BigPicture from "../components/library/BigPicture";
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [
   {
     path: '*',
     redirect: '/'
+  },
+  {
+    path: '/BigPicture',
+    name: 'BigPicture',
+    component: BigPicture
   }
 ]
 

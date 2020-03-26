@@ -14,6 +14,9 @@ Vue.prototype.$axios = axios.create({
   baseURL: 'http://api.backoffice.local:19280'
 })
 
+import {outils} from './outils'
+Vue.mixin(outils);
+
 new Vue({
   router,
   store,

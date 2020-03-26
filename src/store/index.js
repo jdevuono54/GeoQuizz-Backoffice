@@ -13,6 +13,7 @@ export default new Vuex.Store({
   plugins:[vuexLocal.plugin],
   state: {
     user:null,
+    allPicture:[]
   },
   mutations: {
     saveUser(state,user){
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     deleteUser(state){
       state.user = null
+    },
+    setAllPicture(state, data){
+      state.allPicture=data.pictures
     }
   },
   actions: {

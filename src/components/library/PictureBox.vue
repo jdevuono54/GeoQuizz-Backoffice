@@ -1,7 +1,12 @@
 <template>
     <div class="box">
         <img :src="picture.link">
-        <p>{{ picture.description }}</p>
+        <router-link :to="{
+                    name : 'BigPicture',
+                    params : {
+                        identifiant : picture.id
+                    }
+                }" class="nav-link">{{ picture.description }}</router-link>
     </div>
 </template>
 

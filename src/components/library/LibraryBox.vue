@@ -36,6 +36,7 @@
                 }).then((response) => {
                     console.log("Récupération des photos réussie")
                     this.picturesUser = response.data.pictures
+                    this.$store.commit("setAllPicture", response.data)
                 }).catch(error => {
                     console.log("Erreur lors de la connexion")
                     this.$root.makeToast(error.response.data.message)
@@ -43,7 +44,9 @@
             },
             showModalAddPicture(){
                 this.$bvModal.show("modal-addpicture");
-            }
+            },
+
+
         }
     }
 </script>
