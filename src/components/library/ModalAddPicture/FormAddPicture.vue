@@ -11,6 +11,7 @@
                     :state="Boolean(picture.img)"
                     placeholder="Importer votre image"
                     drop-placeholder="Glissez votre image içi."
+                    accept=".jpg, .png"
             ></b-form-file>
         </div>
         <div class="form-row">
