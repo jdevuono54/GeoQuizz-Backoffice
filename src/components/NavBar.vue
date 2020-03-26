@@ -35,6 +35,10 @@
     }
 </script>
 <style scoped lang="scss">
+.navbar{
+    position: absolute;
+    width: 100%;
+}
     .nav-link {
         color: white !important;
         font-weight: bold;
