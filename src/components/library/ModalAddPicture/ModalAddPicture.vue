@@ -6,7 +6,7 @@
         <div class="d-block text-center">
             <FormAddPicture v-show="step === 1" :picture="picture"></FormAddPicture>
             <MapAddPicture v-show="step === 2" :picture="picture" :send="send"></MapAddPicture>
-            <b-btn type="button" class="btn btn-danger btn-block btnCancel" @click="cancel" v-if="!send">Annuler</b-btn>
+            <b-btn type="button" class="btn btn-danger btn-block btnCancel" @click="cancel" v-if="!send" disabled="disabled">Annuler (WIP)</b-btn>
         </div>
     </b-modal>
 </template>
