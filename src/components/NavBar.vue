@@ -9,7 +9,7 @@
 
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <b-navbar-nav>
-                <b-nav-item  to="home">Menu</b-nav-item>
+                <b-nav-item v-if="$route.path!='/home'" to="home">Menu</b-nav-item>
                 <b-nav-item v-on:click="deconnexion">Déconnexion</b-nav-item>
             </b-navbar-nav>
         </div>
@@ -25,6 +25,11 @@
             },
             toMenu(){
                 this.$router.push('/home');
+            }
+        },
+        computed:{
+            main(){
+                return this.$route.path =! '/home'
             }
         }
     }
