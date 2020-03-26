@@ -86,7 +86,12 @@
                     headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
                 }).then((response) => {
                     if(this.picture.series.id_series !== null){
+                        console.log("Serie détecté");
                         this.addImgToSeriesBdd(response.data.pictures.id);
+                    }
+                    else{
+                        location.reload()
+                        console.log("Pas de série")
                     }
                     console.log("Enregistrement de la photo réussie")
                 }).catch(error => {
@@ -100,6 +105,7 @@
                 }, {
                     headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
                 }).then((response) => {
+                    location.reload()
                     console.log("Association de la photo à la série réussie")
                 }).catch(error => {
                     console.log("Erreur lors de l'association de la photo à la série")
