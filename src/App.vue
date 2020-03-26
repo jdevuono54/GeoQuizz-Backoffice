@@ -1,9 +1,19 @@
 <template>
   <div id="app">
+    <NavBar  v-if="$route.path!='/signin'&& $route.path!='/signup'"></NavBar>
     <router-view/>
   </div>
 </template>
+<script>
+  import NavBar from "./components/NavBar";
+  export default {
+    name: "App",
+    components:{
+      NavBar
+    }
 
+  }
+</script>
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
   @import 'node_modules/bootstrap/scss/bootstrap';
@@ -14,6 +24,7 @@
 
     #app {
       font-family: 'Raleway', sans-serif;
+
     }
   }
 </style>
