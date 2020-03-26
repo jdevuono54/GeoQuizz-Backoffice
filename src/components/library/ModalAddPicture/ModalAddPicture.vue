@@ -1,5 +1,5 @@
 <template>
-    <b-modal id="modal-addpicture" hide-footer>
+    <b-modal id="modal-addpicture" hide-footer no-close-on-backdrop no-close-on-esc no-enforce-focus hide-header-close>
         <template v-slot:modal-title>
             Ajouter une photo à votre bibliothèque
         </template>
