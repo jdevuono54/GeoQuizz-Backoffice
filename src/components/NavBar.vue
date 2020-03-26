@@ -3,13 +3,13 @@
         <b-navbar-brand to="home"><img src="../assets/logo.svg" width="24" alt="logo"></b-navbar-brand>
 
         <div>
-            <button class="navbar-toggler" type="button" v-on:click="toMenu">Menu</button>
+            <button v-if="$route.path!='/home' && $route.path!='/'" class="navbar-toggler" type="button" v-on:click="toMenu">Menu</button>
             <button class="navbar-toggler" type="button"v-on:click="deconnexion">Déconnexion</button>
         </div>
 
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <b-navbar-nav>
-                <b-nav-item v-if="$route.path!='/home'" to="home">Menu</b-nav-item>
+                <b-nav-item v-if="$route.path!='/home' && $route.path!='/'" to="home">Menu</b-nav-item>
                 <b-nav-item v-on:click="deconnexion">Déconnexion</b-nav-item>
             </b-navbar-nav>
         </div>
@@ -38,6 +38,7 @@
 .navbar{
     position: absolute;
     width: 100%;
+
 }
     .nav-link {
         color: white !important;

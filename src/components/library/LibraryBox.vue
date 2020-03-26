@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid libraryBox">
+    <div class="container-fluid libraryBox boite">
         <div class="row text-center rowBtnAddPicture">
             <button type="button" @click="showModalAddPicture" class="btn btn-primary btnAddPicture col-sm-12 col-md-3 offset-md-9 col-lg-2 offset-lg-10">Ajouter une photo</button>
         </div>
@@ -49,6 +49,13 @@
 </script>
 
 <style scoped>
+    .boite{
+        overflow: hidden;
+
+    }
+    .btn{
+        margin-top: 3em;
+    }
     .rowBtnAddPicture{
         margin: 1em 1em 0 1em;
     }
