@@ -13,7 +13,7 @@
                     <li class="list-group-item" >
                         <div> description : {{photo.description}}</div>
                         <img v-bind:src="photo.link" height="50%" width="30%">
-
+                        <b-btn v-bind:id="photo.id" v-on:click="clique">Ajouter</b-btn>
                     </li>
                 </ul>
                 <b-btn class="btn" to="/PostConnexion">Retour</b-btn>
@@ -35,8 +35,11 @@
             }
         },
         methods:{
+            clique(){
+                alert(this.serie)
+            }
+        },
 
-        }
 
     }
 </script>

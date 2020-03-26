@@ -12,6 +12,7 @@
         name: 'ListPicture',
         components: {
             ListPicturePage,
-        }
+        },
+
     }
 </script>

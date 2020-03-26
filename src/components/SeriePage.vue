@@ -17,9 +17,9 @@
                     <div>Nombre de photo: {{serie.nb_pictures}}</div>
                     <b-btn class="btn" v-on:click="masquer_div('FormModif')">Modifier la série</b-btn>
                 </div>
-                <b-btn class="btn" v-on:click="listPhoto" to="/ListPicture">Mes photos</b-btn>
+                <b-btn class="btn" v-on:click="listPhoto" to="/ListPicturePage">Mes photos</b-btn>
                 <b-btn v-on:click="masquer_div('FormTelecharger')">Importer</b-btn>
-                <b-btn to="/ListSeriegit">Retour</b-btn>
+                <b-btn to="/ListSerie">Retour</b-btn>
 
                 <br>
                 <div id="FormModif">

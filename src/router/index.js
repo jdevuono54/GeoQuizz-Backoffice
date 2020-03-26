@@ -8,6 +8,7 @@ import NouvelleSerie from "../views/NouvelleSerie";
 import ListSerie from "../views/ListSerie";
 import SeriePage from "../components/SeriePage";
 import ListPicture from "../views/ListPicture";
+import ListPicturePage from "../components/ListPicturePage";
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,11 @@ const routes = [
     path: '/ListPicture',
     name: 'ListPicture',
     component: ListPicture
+  },
+  {
+    path: '/ListPicturePage',
+    name: 'ListPicturePage',
+    component: ListPicturePage
   },
 
 
