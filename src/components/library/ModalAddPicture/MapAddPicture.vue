@@ -2,11 +2,11 @@
     <div class="form-row">
         <div class="col">
             <div><label>Placer la photo sur la map</label></div>
-
             <l-map id="map" @click="addMarker" ref="map" :zoom="6" :center="center">
                 <l-tile-layer :url="url"/>
             </l-map>
-            <button type="button" class="btn btn-primary btn-block" :disabled="!marker" @click="addPicture">Ajouter la photo</button>
+            <button type="button" class="btn btn-primary btn-block" :disabled="!marker" @click="addPicture" v-if="!send">Ajouter la photo</button>
+            <p v-if="send">Veuillez patientez <b-spinner variant="primary" small label="Small Text Centered"></b-spinner></p>
         </div>
     </div>
 </template>
@@ -19,7 +19,7 @@
 
     export default {
         name: "mapForm",
-        props:["picture"],
+        props:["picture","send"],
         components: {
             LMap,
             LTileLayer,
@@ -52,6 +52,7 @@
                 }
             },
             addPicture(){
+                this.$bus.$emit("sendActivity")
                 let reader = new FileReader();
                 reader.readAsDataURL(this.picture.img);
                 reader.onload = () => {

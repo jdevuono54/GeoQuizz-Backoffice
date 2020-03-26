@@ -4,9 +4,9 @@
             Ajouter une photo à votre bibliothèque
         </template>
         <div class="d-block text-center">
-            <FormAddPicture v-if="step === 1" :picture="picture"></FormAddPicture>
-            <MapAddPicture v-if="step === 2" :picture="picture"></MapAddPicture>
-            <b-btn type="button" class="btn btn-danger btn-block btnCancel" @click="cancel">Annuler</b-btn>
+            <FormAddPicture v-show="step === 1" :picture="picture"></FormAddPicture>
+            <MapAddPicture v-show="step === 2" :picture="picture" :send="send"></MapAddPicture>
+            <b-btn type="button" class="btn btn-danger btn-block btnCancel" @click="cancel" v-if="!send">Annuler</b-btn>
         </div>
     </b-modal>
 </template>
@@ -27,10 +27,14 @@
             this.$bus.$on('selectedSerieChange',(serie) => {
                 this.picture.series.id_series = serie.id
             })
+            this.$bus.$on('sendActivity',() => {
+                this.send = true;
+            })
         },
         data(){
             return{
                 step:1,
+                send:false,
                 picture:{
                     description:null,
                     img:null,
@@ -56,12 +60,6 @@
                         id_series:null
                     }
                 }
-            },
-            addPictures(){
-
-            },
-            addImgBB(){
-
             }
         }
     }
