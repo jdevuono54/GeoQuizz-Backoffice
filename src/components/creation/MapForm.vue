@@ -1,7 +1,7 @@
 <template>
     <div>
         <h5>Choissiez la carte de départ</h5>
-        <l-map id="map" ref="map" :zoom="6" :center="center">
+        <l-map id="map" ref="map" :zoom="zoom" :center="center">
             <l-tile-layer :url="url"/>
         </l-map>
         <button type="button" class="btn btn-primary btn-block" @click="validMap" v-if="this.series.latitude === null">Créer ma série !</button>
@@ -27,11 +27,18 @@
         computed:{
           center:function(){
               if(this.series.latitude !== null && this.series.longitude !== null){
-                  console.log(this.series)
                   return latLng(this.series.latitude,this.series.longitude);
               }
               else{
                   return latLng("46.227638", "2.213749");
+              }
+          },
+          zoom:function(){
+              if(this.series.zoom !== null){
+                  return this.series.zoom;
+              }
+              else{
+                  return 6;
               }
           }
         },
