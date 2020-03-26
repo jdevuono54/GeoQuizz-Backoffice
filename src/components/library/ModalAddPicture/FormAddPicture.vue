@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import SearchBarSerie from "./SearchBarSerie";
+    import SearchBarSerie from "../../SearchBarSerie";
     export default {
         name: "FormAddPicture",
         components: {SearchBarSerie},

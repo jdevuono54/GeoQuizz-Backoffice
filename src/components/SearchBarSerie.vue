@@ -38,7 +38,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "~vue-select/dist/vue-select.css";
+    @import "../../node_modules/vue-select/dist/vue-select.css";
 
     .v-select{
         background-color: white;

@@ -5,6 +5,7 @@ import SignUp from "../views/SignUp";
 import Home from "../views/Home";
 import SeriesCreation from "../views/SeriesCreation";
 import Library from "../views/Library";
+import SeriesUpdate from "../views/SeriesUpdate";
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/library',
     name: 'Library',
     component: Library
+  },
+  {
+    path: '/update',
+    name: 'Update',
+    component: SeriesUpdate
   },
   {
     path: '*',
