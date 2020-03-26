@@ -8,7 +8,7 @@
 
                 <div>
                     <button type="button" class="btn btn-info" @click="step = 1">Modifier les informations de la série</button>
-                    <button type="button" class="btn btn-primary">Ajouter des photos à la série</button>
+                    <button type="button" class="btn btn-primary" @click="goAddPicture">Ajouter des photos à la série</button>
                 </div>
             </div>
         </div>
@@ -47,6 +47,9 @@
             })
         },
         methods:{
+            goAddPicture(){
+                this.$router.push({ path: '/seriesaddpictures', query: { id: this.selectedSerie.id }})
+            },
             updateSerie(){
                 this.$axios.put("series/"+this.selectedSerie.id, {
                     city:this.selectedSerie.city,

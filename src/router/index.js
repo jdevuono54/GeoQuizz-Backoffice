@@ -6,6 +6,7 @@ import Home from "../views/Home";
 import SeriesCreation from "../views/SeriesCreation";
 import Library from "../views/Library";
 import SeriesUpdate from "../views/SeriesUpdate";
+import SeriesAddPictures from "../views/SeriesAddPictures";
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ const routes = [
     path: '/update',
     name: 'Update',
     component: SeriesUpdate
+  },
+  {
+    path: '/seriesaddpictures',
+    name: 'addPicture',
+    component: SeriesAddPictures
   },
   {
     path: '*',
