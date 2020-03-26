@@ -56,6 +56,11 @@
                   headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
               }).then((response) => {
                   this.$router.push("home")
+                  this.$root.$bvToast.toast("Création de la série réussie !", {
+                      title: "Succès !",
+                      variant: "success",
+                      noCloseButton: true
+                  })
                   console.log("Création de la série réussie")
               }).catch(error => {
                   console.log("Erreur lors de la création de la série")
