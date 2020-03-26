@@ -67,7 +67,7 @@
                 let reader = new FileReader();
                 reader.readAsDataURL(this.picture.img);
                 reader.onload = () => {
-                    let result = reader.result.substring(23)
+                    let result = reader.result.substring(reader.result.indexOf(",")+1)
                     this.postToImgBB(result);
                 };
                 reader.onerror = function (error) {
