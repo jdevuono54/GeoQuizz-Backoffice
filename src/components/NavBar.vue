@@ -1,5 +1,5 @@
 <template>
-    <b-navbar toggleable="sm" fixed="top" type="light" variant="info">
+    <b-navbar class="navbar1" toggleable="sm" fixed="top" type="light" variant="info">
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-navbar-brand to="Home"><img src="../assets/logo.svg" width="24" alt="logo"></b-navbar-brand>
         <b-collapse id="nav-collapse" is-nav>
@@ -40,5 +40,8 @@
                 text-align: center;
             }
         }
+    }
+    .navbar1{
+        position: absolute;
     }
 </style>
