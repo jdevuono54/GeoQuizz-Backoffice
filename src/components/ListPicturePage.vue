@@ -13,7 +13,7 @@
                     <li class="list-group-item" >
                         <div> description : {{photo.description}}</div>
                         <img v-bind:src="photo.link" height="50%" width="30%">
-                        <b-btn v-bind:id="photo.id" v-on:click="clique">Ajouter</b-btn>
+                        <b-btn v-bind:id="photo.id" v-on:click="AjoutPhoto(photo.id)">Ajouter</b-btn>
                     </li>
                 </ul>
                 <b-btn class="btn" to="/PostConnexion">Retour</b-btn>
@@ -31,14 +31,27 @@
         data: function () {
 
             return {
-
+                serie: false
             }
         },
         methods:{
-            clique(){
-                alert(this.serie)
+            AjoutPhoto(id){
+                /*alert(this.$route.params.identifiant)*/
+                this.$axios.post("serie/"+this.$route.params.identifiant+"/picture",{"id": id} ,{
+                    headers: { Authorization: "Bearer " + this.$store.state.tokenSession
+                    }
+                }).then((response) =>{
+
+                    alert("photo ajouté à la série !")
+
+                })
+
             }
         },
+        mounted() {
+            this.serie = this.getSerie(this.$route.params.identifiant);
+            /*alert(this.$route.params.identifiant)*/
+        }
 
 
     }
