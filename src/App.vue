@@ -8,6 +8,29 @@
   import NavBar from "./components/NavBar";
   export default {
     name: "App",
+    mounted() {
+      this.checkTokenUser();
+      setTimeout(() =>{
+        this.checkTokenUser();
+
+      }, 5000);
+    },
+    methods:{
+      checkTokenUser(){
+        if(this.$store.state.user !== null){
+          this.$axios.post("user/check-token", {}, {
+            headers: {Authorization: 'Bearer ' + this.$store.state.user.token}
+          }).then((response) => {
+            console.log("Token valide")
+          }).catch(error => {
+            this.$store.commit("deleteUser")
+            this.$router.push('/signin');
+            console.log("Token invalide")
+            this.$root.makeToast("Token invalide")
+          })
+        }
+      }
+    },
     components:{
       NavBar
     }

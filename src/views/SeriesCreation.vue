@@ -48,8 +48,8 @@
               this.$axios.post("series", {
                   city:this.series.city,
                   distance:parseInt(this.series.distance),
-                  latitude:this.series.latitude.toString(),
-                  longitude:this.series.longitude.toString(),
+                  latitude:this.series.latitude,
+                  longitude:this.series.longitude,
                   zoom:parseInt(this.series.zoom),
                   nb_pictures:this.series.nb_pictures
               }, {

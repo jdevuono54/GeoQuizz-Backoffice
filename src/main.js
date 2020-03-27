@@ -11,7 +11,7 @@ Vue.prototype.$bus = new Vue()
 Vue.config.productionTip = false
 
 Vue.prototype.$axios = axios.create({
-  baseURL: 'http://api.backoffice.local:19280'
+  baseURL: 'http://51.91.8.97:18280'
 })
 
 new Vue({

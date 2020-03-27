@@ -37,8 +37,8 @@
                     console.log("Récupération des photos réussie")
                     this.picturesUser = response.data.pictures
                 }).catch(error => {
-                    console.log("Erreur lors de la connexion")
-                    this.$root.makeToast(error.response.data.message)
+                    console.log("Erreur lors de la récupération des photos")
+                    this.$root.makeToast("Erreur lors de la récupération des photos")
                 })
             },
             showModalAddPicture(){
