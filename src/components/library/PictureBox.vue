@@ -1,13 +1,16 @@
 <template>
-    <div class="box">
-        <img :src="picture.link">
-        <router-link :to="{
+    <router-link :to="{
                     name : 'BigPicture',
                     params : {
                         identifiant : picture.id
                     }
-                }" class="nav-link">{{ picture.description }}</router-link>
-    </div>
+                }">
+        <div class="box">
+            <img :src="picture.link">
+            <div>{{ picture.description }}</div>
+        </div>
+    </router-link>
+
 </template>
 
 <script>
@@ -15,7 +18,11 @@
         name: "PictureBox",
         props:["picture"],
 
+        methods:{
+
+        }
     }
+
 </script>
 
 <style scoped lang="scss">

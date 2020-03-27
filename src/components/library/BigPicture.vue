@@ -32,6 +32,7 @@
         margin-top: 7em;
         margin-left: 7em;
         margin-right: 3em;
+        max-width: 80%;
 
     }
     .description{
