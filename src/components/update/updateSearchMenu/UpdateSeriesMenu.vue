@@ -8,13 +8,14 @@
 
                 <div>
                     <button type="button" class="btn btn-info" @click="step = 1">Modifier les informations de la série</button>
-                    <button type="button" class="btn btn-primary" @click="goAddPicture">Ajouter des photos à la série</button>
+                    <button type="button" class="btn btn-primary" @click="step = 3">Ajouter des photos à la série</button>
                 </div>
             </div>
         </div>
 
         <CreationForm :series="selectedSerie" v-if="step === 1"/>
         <MapForm :series="selectedSerie" v-if="step === 2"></MapForm>
+        <add-pictures-series-form :series="selectedSerie" v-if="step === 3"></add-pictures-series-form>
     </div>
 </template>
 
@@ -22,10 +23,11 @@
     import SearchBarSerie from "../../SearchBarSerie";
     import CreationForm from "../../creation/CreationForm";
     import MapForm from "../../creation/MapForm";
+    import AddPicturesSeriesForm from "../addPictures/AddPicturesSeriesForm";
 
     export default {
         name: "UpdateSeriesMenu",
-        components: {SearchBarSerie,CreationForm,MapForm},
+        components: {AddPicturesSeriesForm, SearchBarSerie,CreationForm,MapForm},
         data(){
             return{
                 selectedSerie:null,
@@ -47,9 +49,6 @@
             })
         },
         methods:{
-            goAddPicture(){
-                this.$router.push({ path: '/seriesaddpictures', query: { id: this.selectedSerie.id }})
-            },
             updateSerie(){
                 this.$axios.put("series/"+this.selectedSerie.id, {
                     city:this.selectedSerie.city,
